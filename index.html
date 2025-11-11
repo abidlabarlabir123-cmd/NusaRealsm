@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NusaRealms - Server Minecraft</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+    :root {
+      --gold: #ffcc00;
+      --neon: #ffe066;
+      --bg: #000;
+      --text: #fff;
+      --card: #0f0f0f;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle at top, #1a1a1a, #000);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* PARTICLE LIGHTS */
+    .light {
+      position: fixed;
+      width: 8px;
+      height: 8px;
+      background: var(--gold);
+      border-radius: 50%;
+      opacity: 0.7;
+      filter: drop-shadow(0 0 6px var(--gold));
+      animation: blink 2s infinite alternate;
+      pointer-events: none;
+    }
+    @keyframes blink {
+      0% { opacity: 0.2; transform: scale(0.8); }
+      100% { opacity: 1; transform: scale(1.5); }
+    }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    nav h2 { color: var(--gold); text-shadow: 0 0 15px var(--gold); }
+    nav a {
+      color: #fff;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: .3s;
+    }
+    nav a:hover { color: var(--gold); }
+
+    /* HEADER */
+    header {
+      padding: 150px 20px 100px;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 4rem;
+      color: var(--gold);
+      text-shadow: 0 0 40px var(--gold);
+      margin-bottom: 20px;
+    }
+    header p {
+      max-width: 900px;
+      margin: auto;
+      line-height: 1.8;
+      opacity: 0.9;
+      font-size: 1.2rem;
+    }
+
+    /* TITLE */
+    .title {
+      text-align: center;
+      color: var(--gold);
+      text-shadow: 0 0 20px var(--gold);
+      font-size: 2.4rem;
+      margin-top: 80px;
+    }
+
+    /* GRID SECTION */
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      padding: 40px 20px;
+    }
+
+    .card {
+      width: 300px;
+      background: var(--card);
+      padding: 25px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 0 12px rgba(255,255,255,0.1);
+      transition: 0.3s;
+    }
+    .card:hover { transform: scale(1.05); box-shadow: 0 0 20px var(--gold); }
+    .card h3 { color: var(--gold); }
+    .card p { opacity: 0.9; line-height: 1.6; }
+
+    /* FOOTER */
+    footer {
+      margin-top: 70px;
+      padding: 40px;
+      background: #050505;
+      text-align: center;
+      color: #777;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+  </style>
+</head>
+<body>
+
+<script>
+  // Light particles
+  document.addEventListener('DOMContentLoaded', () => {
+    for(let i=0;i<25;i++){
+      const l = document.createElement('div');
+      l.className = 'light';
+      l.style.left = Math.random()*100 + 'vw';
+      l.style.top = Math.random()*100 + 'vh';
+      l.style.animationDelay = (Math.random()*2)+'s';
+      document.body.appendChild(l);
+    }
+  });
+</script>
+
+<nav>
+  <h2>NusaRealms</h2>
+  <div>
+    <a href="#home">Home</a>
+    <a href="#promo">Promosi</a>
+    <a href="#server">Server</a>
+    <a href="#contact">Kontak</a>
+  </div>
+</nav>
+
+<header id="home">
+  <h1>NusaRealms</h1>
+  <p>
+    Selamat datang di dunia Minecraft terbaik di Indonesia! Di sini kamu bisa menjelajahi berbagai mode permainan,
+    mengikuti event besar mingguan, mendapatkan hadiah eksklusif, bertemu komunitas ramah, dan membangun petualangan baru
+    yang tidak ada habisnya.
+  </p>
+</header>
+
+<h2 class="title" id="promo">Promosi Spesial</h2>
+<div class="grid">
+  <div class="card"><h3>Event Mingguan</h3><p>Hadiah besar, tantangan unik, dan kompetisi setiap minggu.</p></div>
+  <div class="card"><h3>Hadiah Player Baru</h3><p>Starter kit gratis untuk membantu pemain baru memulai petualangan.</p></div>
+  <div class="card"><h3>Boost Discord Reward</h3><p>Boost server Discord untuk mendapatkan item spesial & title eksklusif.</p></div>
+  <div class="card"><h3>Promo Donasi</h3><p>Diskon khusus untuk item kosmetik dan fitur non-P2W.</p></div>
+</div>
+
+<h2 class="title" id="server">Mode Server</h2>
+<div class="grid">
+  <div class="card"><h3>Survival 1</h3><p>Server survival klasik dengan komunitas terbesar.</p></div>
+  <div class="card"><h3>Survival 2</h3><p>Survival modern dengan fitur tambahan dan challenge lebih sulit.</p></div>
+  <div class="card"><h3>RPG World</h3><p>Quest, boss, dungeon, dan fitur roleplay lengkap.</p></div>
+  <div class="card"><h3>Skyblock</h3><p>Bangun pulau dari nol, kelola resource, dan berkembang.</p></div>
+  <div class="card"><h3>Bedwars</h3><p>MiniGame PvP cepat dan penuh strategi.</p></div>
+  <div class="card"><h3>Parkour</h3><p>Lintasan parkour penuh tantangan untuk mengetes kemampuanmu.</p></div>
+</div>
+
+<footer id="contact">
+  <p style="font-size:1.2rem;">IP Server: <span style="color:var(--gold); font-weight:700;">play.nusarealms.id</span></p>
+  <p>Discord: <a href="https://discord.gg/p6HDEd9SFg" style="color:#fff;">discord.gg/p6HDEd9SFg</a></p>
+  <p style="margin-top:20px; color:#777;">NusaRealms © 2025 — Komunitas Minecraft Indonesia.</p>
+</footer>
+
+</body>
+</html>
